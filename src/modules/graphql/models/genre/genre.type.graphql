@@ -1,0 +1,12 @@
+# 1. Define the GenreType fields.
+# 1.1. Define the 'id' field as integer.
+# 1.2. Define the 'name' field as string.
+type NameType {
+    field: FieldType
+}
+
+# 2. Define the GenreType queries.
+# 2.1. Define the 'getAllGenres' query that must return an array of GenreType.
+type Query {
+    QueryName: QueryReturn
+}

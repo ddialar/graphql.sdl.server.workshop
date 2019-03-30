@@ -13,13 +13,13 @@ const getAllActors = async (parentValues, args, context, astData) => {
     }
 };
 
-// const getActorById = async (parentValues, args, context, astData) => {
-//     try {
-//         return await ActorsServices.getActorById(args.id);
-//     } catch (error) {
-//         throw error;
-//     }
-// };
+const getActorById = async (parentValues, args, context, astData) => {
+    try {
+        return await ActorsServices.getActorById(args.id);
+    } catch (error) {
+        throw error;
+    }
+};
 
 // ###############################################################
 // ##########             FIELDS OPERATIONS             ##########
@@ -35,7 +35,7 @@ const getAllActors = async (parentValues, args, context, astData) => {
 
 const Queries = {
     getAllActors,
-    // getActorById
+    getActorById
 };
 
 // const ActorType = {

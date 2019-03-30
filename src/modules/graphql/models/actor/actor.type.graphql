@@ -23,8 +23,8 @@ type ActorType {
 
 type Query {
     getAllActors: [ActorType]
-    # getActorById(
-    #     id: Int!): ActorType
+    getActorById(
+        id: Int!): ActorType
 }
 
 # type Mutation {
