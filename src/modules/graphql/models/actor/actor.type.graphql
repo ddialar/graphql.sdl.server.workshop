@@ -10,22 +10,22 @@
 #     country: String
 # }
 
-# type ActorType {
-#     id: Int
-#     name: String
-#     """Actor/Actress' picture URL."""
-#     picture: String
-#     born: String
-#     height: Float
-#     country: String
-#     # movies: [MovieType]
-# }
+type ActorType {
+    id: Int
+    name: String
+    """Actor/Actress' picture URL."""
+    picture: String
+    born: String
+    height: Float
+    country: String
+    # movies: [MovieType]
+}
 
-# type Query {
-#     getAllActors: [ActorType]
-#     # getActorById(
-#     #     id: Int!): ActorType
-# }
+type Query {
+    getAllActors: [ActorType]
+    # getActorById(
+    #     id: Int!): ActorType
+}
 
 # type Mutation {
 #     # addActor(

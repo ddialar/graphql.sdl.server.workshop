@@ -1,17 +1,17 @@
-// import * as ActorsServices       from '../../../../../src/core/services/actors.services';
+import * as ActorsServices       from '../../../../../src/core/services/actors.services';
 // import * as MoviesActorsServices from '../../../../../src/core/services/movies-actors.services';
 
 // ###############################################################
 // ##########            READING OPERATIONS             ##########
 // ###############################################################
 
-// const getAllActors = async (parentValues, args, context, astData) => {
-//     try {
-//         return await ActorsServices.getActorsData();
-//     } catch (error) {
-//         throw error;
-//     }
-// };
+const getAllActors = async (parentValues, args, context, astData) => {
+    try {
+        return await ActorsServices.getActorsData();
+    } catch (error) {
+        throw error;
+    }
+};
 
 // const getActorById = async (parentValues, args, context, astData) => {
 //     try {
@@ -33,16 +33,16 @@
 //     }
 // };
 
-// const Queries = {
-//     getAllActors,
-//     // getActorById
-// };
+const Queries = {
+    getAllActors,
+    // getActorById
+};
 
 // const ActorType = {
 //     movies
 // };
 
-// export {
-//     Queries,
-//     // ActorType
-// };
+export {
+    Queries,
+    // ActorType
+};

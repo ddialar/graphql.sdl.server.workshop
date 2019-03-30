@@ -1,1 +1,1 @@
-# # import Query.*, * from './models/actor/actor.type.graphql'
+# import Query.*, * from './models/actor/actor.type.graphql'
