@@ -8,6 +8,7 @@ const { ActorType } = actor;
 const { DirectorType } = director;
 const { GenreType } = genre;
 const { WriterType } = writer;
+// const { MovieType } = movie;
 
 const Query = Object.assign(
     actor.Queries,
@@ -22,5 +23,6 @@ export {
     ActorType,
     DirectorType,
     GenreType,
-    WriterType
+    WriterType,
+    // MovieType
 };
