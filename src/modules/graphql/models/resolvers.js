@@ -4,6 +4,8 @@ import * as genre    from './genre';
 import * as writer   from './writer';
 import * as movie    from './movie';
 
+// const { ActorType } = actor;
+
 const Query = Object.assign(
     actor.Queries,
     director.Queries,
@@ -13,5 +15,6 @@ const Query = Object.assign(
 );
 
 export {
-    Query
+    Query,
+    // ActorType
 };
