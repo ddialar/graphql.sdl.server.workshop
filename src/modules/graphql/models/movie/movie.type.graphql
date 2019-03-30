@@ -1,4 +1,7 @@
-# # import DirectorType from '../director/director.type.graphql'
+# import DirectorType from '../director/director.type.graphql'
+# import ActorType from '../actor/actor.type.graphql'
+# import WriterType from '../writer/writer.type.graphql'
+# import GenreType from '../genre/genre.type.graphql'
 
 type MovieType {
     id: Int
@@ -10,7 +13,11 @@ type MovieType {
     rating: Float
     classification: String
     year: String
-    # directors: [DirectorType]
+    directors: [DirectorType]
+    writers: [WriterType]
+    actors: [ActorType]
+    genres: [GenreType]
+    genresAsArray: [String]
 }
 
 type Query {
