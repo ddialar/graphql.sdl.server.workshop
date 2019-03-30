@@ -1,8 +1,9 @@
-# # import MovieType from '../movie/movie.type.graphql'
+# import MovieType from '../movie/movie.type.graphql'
 
 type GenreType {
     id: Int
     name: String
+    movies: [MovieType]
 }
 
 type Query {

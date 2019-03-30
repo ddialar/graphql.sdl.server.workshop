@@ -25,24 +25,24 @@ const getActorById = async (parentValues, args, context, astData) => {
 // ##########             FIELDS OPERATIONS             ##########
 // ###############################################################
 
-// const movies = async (parentValues, args, context, astData) => {
-//     try {
-//         return await MoviesActorsServices.getMoviesDataByActorId(parentValues.id);
-//     } catch (error) {
-//         throw error;
-//     }
-// };
+const movies = async (parentValues, args, context, astData) => {
+    try {
+        return await MoviesActorsServices.getMoviesDataByActorId(parentValues.id);
+    } catch (error) {
+        throw error;
+    }
+};
 
 const Queries = {
     getAllActors,
     getActorById
 };
 
-// const ActorType = {
-//     movies
-// };
+const ActorType = {
+    movies
+};
 
 export {
     Queries,
-    // ActorType
+    ActorType
 };

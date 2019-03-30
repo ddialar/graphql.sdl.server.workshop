@@ -1,4 +1,4 @@
-# # import MovieType from '../movie/movie.type.graphql'
+# import MovieType from '../movie/movie.type.graphql'
 
 type ActorType {
     id: Int
@@ -8,7 +8,7 @@ type ActorType {
     born: String
     height: Float
     country: String
-    # movies: [MovieType]
+    movies: [MovieType]
 }
 
 type Query {

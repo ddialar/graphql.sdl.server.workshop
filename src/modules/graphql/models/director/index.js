@@ -1,5 +1,6 @@
-import { Queries } from './director.queries';
+import { Queries, DirectorType } from './director.queries';
 
 export {
-    Queries
+    Queries,
+    DirectorType
 };

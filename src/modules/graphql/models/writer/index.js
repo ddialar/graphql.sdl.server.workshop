@@ -1,5 +1,6 @@
-import { Queries } from './writer.queries';
+import { Queries, WriterType } from './writer.queries';
 
 export {
-    Queries
+    Queries,
+    WriterType
 };

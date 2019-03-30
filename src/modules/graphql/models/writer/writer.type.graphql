@@ -1,8 +1,11 @@
+# import MovieType from '../movie/movie.type.graphql'
+
 type WriterType {
     id: Int
     name: String
     """Writer' picture URL."""
     picture: String
+    movies: [MovieType]
 }
 
 type Query {

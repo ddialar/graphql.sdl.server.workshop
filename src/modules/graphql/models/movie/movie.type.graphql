@@ -14,5 +14,4 @@ type Query {
     getAllMovies: [MovieType]
     getMovieById(
         id: Int!): MovieType
-    genresAsArray: [String]
 }

@@ -1,5 +1,6 @@
-import { Queries } from './genre.queries';
+import { Queries, GenreType } from './genre.queries';
 
 export {
-    Queries
+    Queries,
+    GenreType
 };
