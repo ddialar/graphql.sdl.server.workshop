@@ -1,1 +1,1 @@
-# TODO: To include and grouping all GraphQL definitions here.
+# # import Query.*, * from './models/actor/actor.type.graphql'

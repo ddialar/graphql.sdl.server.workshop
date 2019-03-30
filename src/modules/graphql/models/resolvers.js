@@ -1,6 +1,7 @@
-// TODO: To include and grouping all resolvers here.
+// import * as actor from './actor';
 
 // const Query = Object.assign(
+//     actor.Queries
 // );
 
 // const Mutation = Object.assign(
@@ -8,5 +9,5 @@
 
 // export {
 //     Query,
-//     Mutation
+//     // Mutation
 // };
