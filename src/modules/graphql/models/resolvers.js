@@ -6,28 +6,31 @@ import * as movie    from './movie';
 
 const { ActorType } = actor;
 const { DirectorType } = director;
+const { MovieType } = movie;
 const { GenreType } = genre;
 const { WriterType } = writer;
-const { MovieType } = movie;
 
 const Query = Object.assign(
     actor.Queries,
     director.Queries,
     genre.Queries,
     writer.Queries,
-    movie.Queries
+    movie.Queries,
 );
-
-// const Mutation = Object.assign(
-//     director.Mutations
-// );
+const Mutation = Object.assign(
+    actor.Mutations,
+    director.Mutations,
+    genre.Mutations,
+    writer.Mutations,
+    movie.Mutations,
+);
 
 export {
     Query,
-    // Mutation,
+    Mutation,
     ActorType,
     DirectorType,
+    MovieType,
     GenreType,
-    WriterType,
-    MovieType
+    WriterType
 };

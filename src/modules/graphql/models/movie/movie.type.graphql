@@ -2,6 +2,18 @@
 # import ActorType from '../actor/actor.type.graphql'
 # import WriterType from '../writer/writer.type.graphql'
 # import GenreType from '../genre/genre.type.graphql'
+# import ResponseType from '../response/response.type.graphql'
+
+input MovieInputType {
+    title: String
+    description: String
+    poster_image: String
+    """Movie long in minutes."""
+    duration: Int
+    rating: Float
+    classification: String
+    year: String
+}
 
 type MovieType {
     id: Int
@@ -24,4 +36,18 @@ type Query {
     getAllMovies: [MovieType]
     getMovieById(
         id: Int!): MovieType
+    genresAsArray: [String]
+}
+
+type Mutation {
+    addMovie(
+        data: MovieInputType!): MovieType
+    updateMovie(
+        "Movie/Actress identification."
+        id: Int!, 
+        "New data to be applied."
+        data: MovieInputType): MovieType
+    deleteMovie(
+        "Movie/Actress identification."
+        id: Int!): ResponseType
 }

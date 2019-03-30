@@ -1,4 +1,11 @@
 # import MovieType from '../movie/movie.type.graphql'
+# import ResponseType from '../response/response.type.graphql'
+
+input WriterInputType {
+    name: String!
+    "Writer picture URL."
+    picture: String
+}
 
 type WriterType {
     id: Int
@@ -12,4 +19,17 @@ type Query {
     getAllWriters: [WriterType]
     getWriterById(
         id: Int!): WriterType
+}
+
+type Mutation {
+    addWriter(
+        data: WriterInputType!): WriterType
+    updateWriter(
+        "Writer identification."
+        id: Int!, 
+        "New data to be applied."
+        data: WriterInputType): WriterType
+    deleteWriter(
+        "Writer identification."
+        id: Int!): ResponseType
 }

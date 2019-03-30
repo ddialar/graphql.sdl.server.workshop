@@ -1,11 +1,11 @@
 # import MovieType from '../movie/movie.type.graphql'
-# # import ResponseType from '../response/response.type.graphql'
+# import ResponseType from '../response/response.type.graphql'
 
-# input DirectorInputType {
-#     name: String!
-#     "Director picture URL."
-#     picture: String
-# }
+input DirectorInputType {
+    name: String!
+    "Director picture URL."
+    picture: String
+}
 
 type DirectorType {
     id: Int
@@ -22,14 +22,14 @@ type Query {
 }
 
 type Mutation {
-    # addDirector(
-    #     data: DirectorInputType!): DirectorType
-    # updateDirector(
-    #     "Director identification."
-    #     id: Int!, 
-    #     "New data to be applied."
-    #     data: DirectorInputType): DirectorType
-    # deleteDirector(
-    #     "Director identification."
-    #     id: Int!): ResponseType
+    addDirector(
+        data: DirectorInputType!): DirectorType
+    updateDirector(
+        "Director identification."
+        id: Int!, 
+        "New data to be applied."
+        data: DirectorInputType): DirectorType
+    deleteDirector(
+        "Director identification."
+        id: Int!): ResponseType
 }

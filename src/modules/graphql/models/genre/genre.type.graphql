@@ -1,4 +1,9 @@
 # import MovieType from '../movie/movie.type.graphql'
+# import ResponseType from '../response/response.type.graphql'
+
+input GenreInputType {
+    name: String!
+}
 
 type GenreType {
     id: Int
@@ -10,4 +15,17 @@ type Query {
     getAllGenres: [GenreType]
     getGenreById(
         id: Int!): GenreType
+}
+
+type Mutation {
+    addGenre(
+        data: GenreInputType!): GenreType
+    updateGenre(
+        "Genre identification."
+        id: Int!, 
+        "New data to be applied."
+        data: GenreInputType): GenreType
+    deleteGenre(
+        "Genre identification."
+        id: Int!): ResponseType,
 }

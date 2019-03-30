@@ -1,4 +1,14 @@
 # import MovieType from '../movie/movie.type.graphql'
+# import ResponseType from '../response/response.type.graphql'
+
+input ActorInputType {
+    name: String!
+    "Actor/Actress' picture URL."
+    picture: String
+    born: String
+    height: Float
+    country: String
+}
 
 type ActorType {
     id: Int
@@ -15,4 +25,17 @@ type Query {
     getAllActors: [ActorType]
     getActorById(
         id: Int!): ActorType
+}
+
+type Mutation {
+    addActor(
+        data: ActorInputType!): ActorType
+    updateActor(
+        "Actor/Actress identification."
+        id: Int!, 
+        "New data to be applied."
+        data: ActorInputType): ActorType
+    deleteActor(
+        "Actor/Actress identification."
+        id: Int!): ResponseType,
 }
