@@ -1,0 +1,12 @@
+type WriterType {
+    id: Int
+    name: String
+    """Writer' picture URL."""
+    picture: String
+}
+
+type Query {
+    getAllWriters: [WriterType]
+    getWriterById(
+        id: Int!): WriterType
+}

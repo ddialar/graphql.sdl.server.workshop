@@ -1,5 +1,5 @@
 import * as ActorsServices       from '../../../../../src/core/services/actors.services';
-// import * as MoviesActorsServices from '../../../../../src/core/services/movies-actors.services';
+import * as MoviesActorsServices from '../../../../../src/core/services/movies-actors.services';
 
 // ###############################################################
 // ##########            READING OPERATIONS             ##########
@@ -21,28 +21,11 @@ const getActorById = async (parentValues, args, context, astData) => {
     }
 };
 
-// ###############################################################
-// ##########             FIELDS OPERATIONS             ##########
-// ###############################################################
-
-// const movies = async (parentValues, args, context, astData) => {
-//     try {
-//         return await MoviesActorsServices.getMoviesDataByActorId(parentValues.id);
-//     } catch (error) {
-//         throw error;
-//     }
-// };
-
 const Queries = {
     getAllActors,
     getActorById
 };
 
-// const ActorType = {
-//     movies
-// };
-
 export {
-    Queries,
-    // ActorType
+    Queries
 };

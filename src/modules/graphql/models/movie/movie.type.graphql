@@ -1,0 +1,18 @@
+type MovieType {
+    id: Int
+    title: String
+    description: String
+    poster_image: String
+    """Movie long in minutes."""
+    duration: Int
+    rating: Float
+    classification: String
+    year: String
+}
+
+type Query {
+    getAllMovies: [MovieType]
+    getMovieById(
+        id: Int!): MovieType
+    genresAsArray: [String]
+}

@@ -1,28 +1,28 @@
-import * as GenresServices from '../../../../../src/core/services/genres.services';
+import * as MoviesServices from '../../../../../src/core/services/movies.services';
 
 // ###############################################################
 // ##########            READING OPERATIONS             ##########
 // ###############################################################
 
-const getAllGenres = async (parentValues, args, context, astData) => {
+const getAllMovies = async (parentValues, args, context, astData) => {
     try {
-        return await GenresServices.getGenresData();
+        return await MoviesServices.getMoviesData();
     } catch (error) {
         throw error;
     }
 };
 
-const getGenreById = async (parentValues, args, context, astData) => {
+const getMovieById = async (parentValues, args, context, astData) => {
     try {
-        return await GenresServices.getGenreById(args.id);
+        return await MoviesServices.getMovieById(args.id);
     } catch (error) {
         throw error;
     }
 };
 
 const Queries = {
-    getAllGenres,
-    getGenreById
+    getAllMovies,
+    getMovieById
 };
 
 export {

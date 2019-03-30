@@ -1,15 +1,17 @@
-import * as actor from './actor';
-// 1. Import all implementation from the 'genre' model.
+import * as actor    from './actor';
+import * as director from './director';
+import * as genre    from './genre';
+import * as writer   from './writer';
+import * as movie    from './movie';
 
 const Query = Object.assign(
-    actor.Queries
-    // 2. Include the imported object Queries into the 'Query' object.
+    actor.Queries,
+    director.Queries,
+    genre.Queries,
+    writer.Queries,
+    movie.Queries
 );
 
-// const Mutation = Object.assign(
-// );
-
 export {
-    Query,
-    // Mutation
+    Query
 };

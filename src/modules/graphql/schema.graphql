@@ -1,1 +1,5 @@
 # import Query.*, * from './models/actor/actor.type.graphql'
+# import Query.*, * from './models/director/director.type.graphql'
+# import Query.*, * from './models/genre/genre.type.graphql'
+# import Query.*, * from './models/writer/writer.type.graphql'
+# import Query.*, * from './models/movie/movie.type.graphql'

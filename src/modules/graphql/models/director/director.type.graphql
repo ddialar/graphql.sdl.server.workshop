@@ -1,0 +1,15 @@
+# # import MovieType from '../movie/movie.type.graphql'
+
+type DirectorType {
+    id: Int
+    name: String
+    """Director' picture URL."""
+    picture: String
+    movies: [MovieType]
+}
+
+type Query {
+    getAllDirectors: [DirectorType]
+    getDirectorById(
+        id: Int!): DirectorType
+}
