@@ -18,8 +18,13 @@ const Query = Object.assign(
     movie.Queries
 );
 
+// const Mutation = Object.assign(
+//     director.Mutations
+// );
+
 export {
     Query,
+    // Mutation,
     ActorType,
     DirectorType,
     GenreType,
