@@ -1,0 +1,112 @@
+{
+  "name": "graphql.sdl.server.workshop",
+  "version": "1.0.0",
+  "description": "GraphQL basic server based on Apollo Server and SDL.",
+  "author": "Dailos Rafael Díaz Lara <ddialar@gmail.com>",
+  "homepage": "https://github.com/ddialar/graphql.sdl.server.workshop/README.md",
+  "license": "Creative Commons BY-NC-ND 4.0",
+  "private": false,
+  "keywords": [
+    "GraphQL",
+    "SDL",
+    "Schema Definition Language",
+    "Apollo Server",
+    "NodeJS",
+    "Workshop"
+  ],
+  "main": "src/server.js",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddialar/graphql.sdl.server.workshop.git"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es6": true,
+      "node": true,
+      "jest": true
+    },
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 8
+    },
+    "rules": {
+      "indent": [
+        "error",
+        4
+      ],
+      "linebreak-style": [
+        "error",
+        "unix"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "no-undef": [
+        "error"
+      ]
+    }
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ],
+    "env": {
+      "debug": {
+        "sourceMap": "inline",
+        "retainLines": true
+      }
+    }
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ignore": [
+      "node_modules/*"
+    ],
+    "ext": "js,graphql",
+    "env": {
+      "BABEL_DISABLE_CACHE": 1
+    },
+    "exec": "babel-node src/server.js"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/*",
+      "<rootDir>/config/*",
+      "<rootDir>/config/test/*",
+      "<rootDir>/docs/*",
+      "<rootDir>/logs/*"
+    ],
+    "roots": [
+      "<rootDir>/src/",
+      "<rootDir>/tests/"
+    ],
+    "testEnvironment": "node",
+    "verbose": false,
+    "testURL": "http://localhost"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.12.1",
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "apollo-server": "^2.3.2",
+    "axios": "^0.18.0",
+    "graphql": "^14.1.1",
+    "graphql-import": "^0.7.1",
+    "graphql-tools": "^4.0.4",
+    "log4js": "^4.0.0"
+  }
+}

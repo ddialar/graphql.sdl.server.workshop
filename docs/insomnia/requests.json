@@ -1,0 +1,910 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2019-03-29T23:48:01.129Z",
+	"__export_source": "insomnia.desktop.app:v6.3.2",
+	"resources": [
+		{
+			"_id": "wrk_e662a58b086346509302d4dfd4de7a93",
+			"created": 1553843462461,
+			"description": "",
+			"modified": 1553843548362,
+			"name": "GQL WORKSHOP",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_fed49daa3d8e4ba38b5e1f7af0320e96",
+			"color": null,
+			"created": 1553843462513,
+			"data": {},
+			"isPrivate": false,
+			"metaSortKey": 1553843462513,
+			"modified": 1553843462513,
+			"name": "New Environment",
+			"parentId": "wrk_e662a58b086346509302d4dfd4de7a93",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_f7715c4f65ae4d4a8e99271850e0ebac",
+			"cookies": [],
+			"created": 1553843462515,
+			"modified": 1553843462515,
+			"name": "Default Jar",
+			"parentId": "wrk_e662a58b086346509302d4dfd4de7a93",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_037a2eefc5c142bf9a293506fb1e07b9",
+			"created": 1553843626753,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1553843626753,
+			"modified": 1553843626753,
+			"name": "Actors",
+			"parentId": "wrk_e662a58b086346509302d4dfd4de7a93",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_74810b84a22d48a69eb58141d9d57bfc",
+			"created": 1553858828970,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1551567327952,
+			"modified": 1553858841328,
+			"name": "Directors",
+			"parentId": "wrk_e662a58b086346509302d4dfd4de7a93",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_222e5517522042ffaddded953a7dddaa",
+			"created": 1553870602392,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1550429178551.5,
+			"modified": 1553870610014,
+			"name": "Genres",
+			"parentId": "wrk_e662a58b086346509302d4dfd4de7a93",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_a53332545859468a9e8737ed8d522c5b",
+			"created": 1553872202802,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1549860103851.25,
+			"modified": 1553872218547,
+			"name": "Writers",
+			"parentId": "wrk_e662a58b086346509302d4dfd4de7a93",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_d3a1f963ebca4b57819f6645b820c56b",
+			"created": 1553878757256,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1549575566501.125,
+			"modified": 1553878764026,
+			"name": "Movies",
+			"parentId": "wrk_e662a58b086346509302d4dfd4de7a93",
+			"_type": "request_group"
+		},
+		{
+			"_id": "env_97aaf668fb1c4b7699b643caed68953d",
+			"color": "#00ff00",
+			"created": 1553843568069,
+			"data": {
+				"graphql_endpoint": "graphql",
+				"port": 4500,
+				"token": "{% response 'body', 'req_6c3b3f8ada5146628102feaa72b1a2bf', '$.data.signin.token' %}",
+				"url": "http://localhost"
+			},
+			"isPrivate": false,
+			"metaSortKey": 1553843568069,
+			"modified": 1553843601177,
+			"name": "Development",
+			"parentId": "env_fed49daa3d8e4ba38b5e1f7af0320e96",
+			"_type": "environment"
+		},
+		{
+			"_id": "req_38743f5a14b849cbaf18c21024767e73",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query {\\n    getAllActors {\\n        id\\n        name\\n        #picture\\n        #born\\n        #height\\n        #country\\n        #movies {\\n        #    title\\n        #}\\n    }\\n}\"}"
+			},
+			"created": 1553843649897,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1553843649897,
+			"method": "POST",
+			"modified": 1553900960677,
+			"name": "Get All actors",
+			"parameters": [],
+			"parentId": "fld_037a2eefc5c142bf9a293506fb1e07b9",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_8f1218e0cd5e4c47b08e8743850b2899",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query($id: Int!) {\\n    getActorById(\\n        id: $id\\n    ) {\\n        id\\n        name\\n        picture\\n        born\\n        height\\n        country\\n        movies {\\n            title\\n        }\\n    }\\n}\",\"variables\":{\"id\":1}}"
+			},
+			"created": 1553843889393,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1551384590511.5,
+			"method": "POST",
+			"modified": 1553900945765,
+			"name": "Get actor by ID",
+			"parameters": [],
+			"parentId": "fld_037a2eefc5c142bf9a293506fb1e07b9",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_e93217e2572648028e424e019c7f6ded",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation($data: ActorInputType!) {\\n    addActor(\\n        data: $data\\n    ) {\\n        id\\n        name\\n        picture\\n        born\\n        height\\n        country\\n    }\\n}\",\"variables\":{\"data\":{\"name\":\"Testing Actor\",\"picture\":\"Testing Actor Picture\",\"born\":\"1990-01-01\",\"height\":1.85,\"country\":\"Spain\"}}}"
+			},
+			"created": 1553854756453,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1550616134453.5312,
+			"method": "POST",
+			"modified": 1553861368327,
+			"name": "Add actor",
+			"parameters": [],
+			"parentId": "fld_037a2eefc5c142bf9a293506fb1e07b9",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_b4f91e20f39340f68b7dfa36d094904c",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation($id: Int!) {\\n    deleteActor(\\n        id: $id\\n    ) {\\n        code\\n    }\\n}\",\"variables\":{\"id\":30}}"
+			},
+			"created": 1553856017373,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549540295972.375,
+			"method": "POST",
+			"modified": 1553861387572,
+			"name": "Delete actor",
+			"parameters": [],
+			"parentId": "fld_037a2eefc5c142bf9a293506fb1e07b9",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_298cb46ffed54fdab81bd96280a04c55",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation($id: Int!, $data: ActorInputType!) {\\n    updateActor(\\n        id: $id,\\n        data: $data\\n    ) {\\n        id\\n        name\\n        picture\\n        born\\n        height\\n        country\\n    }\\n}\",\"variables\":{\"id\":29,\"data\":{\"name\":\"Edited Actor\",\"picture\":\"Edited Actor Picture\",\"born\":\"2019-03-30\",\"height\":2.55,\"country\":\"Kiev\"}}}"
+			},
+			"created": 1553857038214,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549847678395.5625,
+			"method": "POST",
+			"modified": 1553857544099,
+			"name": "Update actor",
+			"parameters": [],
+			"parentId": "fld_037a2eefc5c142bf9a293506fb1e07b9",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_e280bf04ba8d48bf895cfb40ad453234",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query {\\n    getAllDirectors {\\n        id\\n        name\\n        picture\\n        #movies {\\n        #    title\\n        #}\\n    }\\n}\"}"
+			},
+			"created": 1553858828974,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1553843649897,
+			"method": "POST",
+			"modified": 1553900971020,
+			"name": "Get All directors",
+			"parameters": [],
+			"parentId": "fld_74810b84a22d48a69eb58141d9d57bfc",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_fb998ab3fcaa4f9fa0455156475f2f94",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query($id: Int!) {\\n    getDirectorById(\\n        id: $id\\n    ) {\\n        id\\n        name\\n        picture\\n        movies {\\n            title\\n        }\\n    }\\n}\",\"variables\":{\"id\":3}}"
+			},
+			"created": 1553858828980,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1551384590511.5,
+			"method": "POST",
+			"modified": 1553901213736,
+			"name": "Get director by ID",
+			"parameters": [],
+			"parentId": "fld_74810b84a22d48a69eb58141d9d57bfc",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_7228a7faecfd48aaa88c2d31a47e6b66",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation($data: DirectorInputType!) {\\n    addDirector(\\n        data: $data\\n    ) {\\n        id\\n        name\\n        picture\\n    }\\n}\",\"variables\":{\"data\":{\"name\":\"Testing Director\",\"picture\":\"Testing Director Picture\"}}}"
+			},
+			"created": 1553858828986,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1550616134453.5312,
+			"method": "POST",
+			"modified": 1553861405612,
+			"name": "Add director",
+			"parameters": [],
+			"parentId": "fld_74810b84a22d48a69eb58141d9d57bfc",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_91543873bd6a4d2986facd0df2064660",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation($id: Int!) {\\n    deleteDirector(\\n        id: $id\\n    ) {\\n        code\\n    }\\n}\",\"variables\":{\"id\":7}}"
+			},
+			"created": 1553858828994,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549540295972.375,
+			"method": "POST",
+			"modified": 1553870597278,
+			"name": "Delete director",
+			"parameters": [],
+			"parentId": "fld_74810b84a22d48a69eb58141d9d57bfc",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_ff1ae85aadb745399af9de4afd112862",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation($id: Int!, $data: DirectorInputType!) {\\n    updateDirector(\\n        id: $id,\\n        data: $data\\n    ) {\\n        id\\n        name\\n        picture\\n    }\\n}\",\"variables\":{\"id\":7,\"data\":{\"name\":\"Edited Director\",\"picture\":\"Edited Director Picture\"}}}"
+			},
+			"created": 1553858829008,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549847678395.5625,
+			"method": "POST",
+			"modified": 1553861767906,
+			"name": "Update director",
+			"parameters": [],
+			"parentId": "fld_74810b84a22d48a69eb58141d9d57bfc",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_bb8f0e1134c94065bbe4781663e513ae",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query {\\n    getAllGenres {\\n        id\\n        name\\n        movies {\\n            title\\n        }\\n    }\\n}\"}"
+			},
+			"created": 1553870602395,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1553843649897,
+			"method": "POST",
+			"modified": 1553901622595,
+			"name": "Get All genres",
+			"parameters": [],
+			"parentId": "fld_222e5517522042ffaddded953a7dddaa",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_80b11a87c67148eb8710df45c3678fda",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query($id: Int!) {\\n    getGenreById(\\n        id: $id\\n    ) {\\n        id\\n        name\\n        movies {\\n            title\\n        }\\n    }\\n}\",\"variables\":{\"id\":3}}"
+			},
+			"created": 1553870602401,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1551384590511.5,
+			"method": "POST",
+			"modified": 1553901242984,
+			"name": "Get genre by ID",
+			"parameters": [],
+			"parentId": "fld_222e5517522042ffaddded953a7dddaa",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_e272697880a44542bca05afbdcf8b823",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation($data: GenreInputType!) {\\n    addGenre(\\n        data: $data\\n    ) {\\n        id\\n        name\\n    }\\n}\",\"variables\":{\"data\":{\"name\":\"Testing Genre\"}}}"
+			},
+			"created": 1553870602410,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1550616134453.5312,
+			"method": "POST",
+			"modified": 1553871146824,
+			"name": "Add genre",
+			"parameters": [],
+			"parentId": "fld_222e5517522042ffaddded953a7dddaa",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_05b662a6c0b84cfea458a75cbce17468",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation($id: Int!) {\\n    deleteGenre(\\n        id: $id\\n    ) {\\n        code\\n    }\\n}\",\"variables\":{\"id\":10}}"
+			},
+			"created": 1553870602420,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549540295972.375,
+			"method": "POST",
+			"modified": 1553872191826,
+			"name": "Delete genre",
+			"parameters": [],
+			"parentId": "fld_222e5517522042ffaddded953a7dddaa",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_484719bbb99744b682f8b3f1d92fa9da",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation($id: Int!, $data: GenreInputType!) {\\n    updateGenre(\\n        id: $id,\\n        data: $data\\n    ) {\\n        id\\n        name\\n    }\\n}\",\"variables\":{\"id\":10,\"data\":{\"name\":\"Edited Genre\"}}}"
+			},
+			"created": 1553870602432,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549847678395.5625,
+			"method": "POST",
+			"modified": 1553871236031,
+			"name": "Update genre",
+			"parameters": [],
+			"parentId": "fld_222e5517522042ffaddded953a7dddaa",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_439052287e09470b9dac7810a2fe3b9b",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query {\\n    getAllWriters {\\n        id\\n        name\\n        picture\\n        #movies {\\n        #    title\\n        #}\\n    }\\n}\"}"
+			},
+			"created": 1553872202805,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1553843649897,
+			"method": "POST",
+			"modified": 1553902728611,
+			"name": "Get All writers",
+			"parameters": [],
+			"parentId": "fld_a53332545859468a9e8737ed8d522c5b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_ea2d658ab2a042ec8cc28fa38573cd18",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query($id: Int!) {\\n    getWriterById(\\n        id: $id\\n    ) {\\n        id\\n        name\\n        picture\\n        #movies {\\n        #    title\\n        #}\\n    }\\n}\",\"variables\":{\"id\":3}}"
+			},
+			"created": 1553872202815,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1551384590511.5,
+			"method": "POST",
+			"modified": 1553902717679,
+			"name": "Get writer by ID",
+			"parameters": [],
+			"parentId": "fld_a53332545859468a9e8737ed8d522c5b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_6466ae8e11174f8697eb2139c7b29305",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation($data: WriterInputType!) {\\n    addWriter(\\n        data: $data\\n    ) {\\n        id\\n        name\\n        picture\\n    }\\n}\",\"variables\":{\"data\":{\"name\":\"Testing Writer\",\"picture\":\"Testing Writer Picture\"}}}"
+			},
+			"created": 1553872202825,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1550616134453.5312,
+			"method": "POST",
+			"modified": 1553902732963,
+			"name": "Add writer",
+			"parameters": [],
+			"parentId": "fld_a53332545859468a9e8737ed8d522c5b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_a7cd624f842d4efda01568d27f9a8aa4",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation($id: Int!) {\\n    deleteWriter(\\n        id: $id\\n    ) {\\n        code\\n    }\\n}\",\"variables\":{\"id\":14}}"
+			},
+			"created": 1553872202837,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549540295972.375,
+			"method": "POST",
+			"modified": 1553873444913,
+			"name": "Delete writer",
+			"parameters": [],
+			"parentId": "fld_a53332545859468a9e8737ed8d522c5b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_a388407331b842aab7d06a1773810a27",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation($id: Int!, $data: WriterInputType!) {\\n    updateWriter(\\n        id: $id,\\n        data: $data\\n    ) {\\n        id\\n        name\\n        picture\\n    }\\n}\",\"variables\":{\"id\":14,\"data\":{\"name\":\"Testing Writer\",\"picture\":\"Testing Writer Picture\"}}}"
+			},
+			"created": 1553872202856,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549847678395.5625,
+			"method": "POST",
+			"modified": 1553873441270,
+			"name": "Update writer",
+			"parameters": [],
+			"parentId": "fld_a53332545859468a9e8737ed8d522c5b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_7ef6d41f085c40e8965146003017a0e4",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query {\\n    getAllMovies {\\n        id\\n        title\\n        #description\\n        #poster_image\\n        #duration\\n        #rating\\n        #classification\\n        #year\\n        #directors {\\n        #    name\\n        #}\\n        #writers {\\n        #    name\\n        #}\\n        #actors {\\n        #    name\\n        #}\\n        #genres {\\n        #    name\\n        #}\\n        #genresAsArray\\n    }\\n}\"}"
+			},
+			"created": 1553878757259,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1553843649897,
+			"method": "POST",
+			"modified": 1553903204277,
+			"name": "Get All movies",
+			"parameters": [],
+			"parentId": "fld_d3a1f963ebca4b57819f6645b820c56b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_04d679bf204e489fb73e0415a663d259",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"query($id: Int!) {\\n    getMovieById(id: $id) {\\n        id\\n        title\\n        #description\\n        #poster_image\\n        #duration\\n        #rating\\n        #classification\\n        #year\\n        #directors {\\n        #    name\\n        #}\\n        #writers {\\n        #    name\\n        #}\\n        #actors {\\n        #    name\\n        #}\\n        #genres {\\n        #    name\\n        #}\\n        #genresAsArray\\n    }\\n}\",\"variables\":{\"id\":3}}"
+			},
+			"created": 1553878757269,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1551384590511.5,
+			"method": "POST",
+			"modified": 1553903209435,
+			"name": "Get movie by ID",
+			"parameters": [],
+			"parentId": "fld_d3a1f963ebca4b57819f6645b820c56b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_7e617a58d8304cf7a65b6f5c81dcde59",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation($data: MovieInputType!) {\\n    addMovie(\\n        data: $data\\n    ) {\\n        id\\n        title\\n        description\\n        poster_image\\n        duration\\n        rating\\n        classification\\n        year\\n        #directors {\\n        #    name\\n        #}\\n        #writers {\\n        #    name\\n        #}\\n        #actors {\\n        #    name\\n        #}\\n        #genres {\\n        #    name\\n        #}\\n        #genresAsArray\\n    }\\n}\",\"variables\":{\"data\":{\"title\":\"Testing Movie\",\"description\":\"Testing Movie Description\",\"poster_image\":\"Testing Movie poster\",\"duration\":190,\"rating\":8.3,\"classification\":\"PEGI 13\",\"year\":\"2010\"}}}"
+			},
+			"created": 1553878757283,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1550616134453.5312,
+			"method": "POST",
+			"modified": 1553903210819,
+			"name": "Add movie",
+			"parameters": [],
+			"parentId": "fld_d3a1f963ebca4b57819f6645b820c56b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_5fcfab7d22284109a327ba9a7073a023",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation($id: Int!) {\\n    deleteMovie(\\n        id: $id\\n    ) {\\n        code\\n    }\\n}\",\"variables\":{\"id\":7}}"
+			},
+			"created": 1553878757297,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549540295972.375,
+			"method": "POST",
+			"modified": 1553896766766,
+			"name": "Delete movie",
+			"parameters": [],
+			"parentId": "fld_d3a1f963ebca4b57819f6645b820c56b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		},
+		{
+			"_id": "req_dd56501187d84ac5a1952ffd1b570d56",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/graphql",
+				"text": "{\"query\":\"mutation($id: Int!, $data: MovieInputType!) {\\n    updateMovie(\\n        id: $id,\\n        data: $data\\n    ) {\\n        id\\n        title\\n        description\\n        poster_image\\n        duration\\n        rating\\n        classification\\n        year\\n        #directors {\\n        #    name\\n        #}\\n        #writers {\\n        #    name\\n        #}\\n        #actors {\\n        #    name\\n        #}\\n        #genres {\\n        #    name\\n        #}\\n        #genresAsArray\\n    }\\n}\",\"variables\":{\"id\":7,\"data\":{\"title\":\"Updated Movie\",\"description\":\"Updated Movie Description\",\"poster_image\":\"Updated Movie poster\",\"duration\":66,\"rating\":5,\"classification\":\"PEGI 18\",\"year\":\"2112\"}}}"
+			},
+			"created": 1553878757316,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_39e04ab4833c48ba9ba4f06ccf3ae853",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1549847678395.5625,
+			"method": "POST",
+			"modified": 1553903212941,
+			"name": "Update movie",
+			"parameters": [],
+			"parentId": "fld_d3a1f963ebca4b57819f6645b820c56b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingMaxTimelineDataSize": 1000,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "{{ url  }}:{{ port  }}/{{ graphql_endpoint  }}",
+			"_type": "request"
+		}
+	]
+}
